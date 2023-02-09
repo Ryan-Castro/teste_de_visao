@@ -31,13 +31,20 @@ function starRounds(){
     document.querySelectorAll(".btn").forEach(element=>{
         element.addEventListener("click", checkedAcuity)
     })
+    $("#question").style.width = "100%"
     $("#question").style.transform += `scale(${1 - (roundsPlayed / 10)})`
+    //$(".center").style.backgroundColor = "white"
 }
 
 function checkedAcuity(e){
     let res = e.target.className
     if(res.includes($("#divQuestion").className)){
         score.acuity++
+        $(".center").style.backgroundColor = "green"
+    } else {
+        $(".center").style.backgroundColor = "red"
     }
-    startAcuity(rounds)
+    setTimeout(()=>{
+        startAcuity(rounds)
+    },500)
 }

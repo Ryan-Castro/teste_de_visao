@@ -35,7 +35,9 @@ button{
     border-radius: 100px;
 }
 #divTable{
+    width: 100%;
     display: grid;
+    justify-content: center;
     grid-template-columns: auto auto auto;
     gap: 20px;
 }
@@ -66,6 +68,13 @@ button{
 }
 .center{
     background-image: none;
+    background-color: white;
+}
+#debitCard{
+    width: 350px;
+}
+#divImgCalib{
+    height: 50vh;
 }
 
 @media (max-width: 600px){
