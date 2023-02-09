@@ -1,0 +1,82 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+button{
+    height: 50px;
+    border-radius: 30px;
+}
+#question{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.divArrow{
+    width: 100px;
+    height: 100px;
+    background-image: url("../imagens/setaBase.webp");
+    background-size: cover;
+    background-color: aqua;
+    border-radius: 100px;
+}
+#divTable{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+}
+
+.topLeft{
+    transform: rotate(-45deg);
+}
+.top{
+    transform: rotate(0deg);
+}
+.topRight{
+    transform: rotate(45deg);
+}
+.left{
+    transform: rotate(-90deg);
+}
+.right{
+    transform: rotate(90deg);
+}
+.botLeft{
+    transform: rotate(-135deg);
+}
+.bot{
+    transform: rotate(180deg);
+}
+.botRight{
+    transform: rotate(135deg);
+}
+.center{
+    background-image: none;
+}
+
+@media (max-width: 600px){
+    h1{
+        font-size: 25px;
+    }
+    h2{
+        font-size: 15px;
+    }
+    .divArrow{
+        width: 70px;
+        height: 70px;
+    }
+}
