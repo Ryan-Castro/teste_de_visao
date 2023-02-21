@@ -1,0 +1,80 @@
+@keyframes init{
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+#container{
+    width: 80%;
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+}
+#container::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    top: 50%;
+    transform: translateY(-100%);
+    z-index: -1;
+    background-color: rgb(190, 190, 190);
+}
+.circle{
+    width: 90px;
+    height: 90px;
+    background-color: rgb(190, 190, 190);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0px;
+    border-radius: 50%;
+    position: relative;
+}
+.selected{
+    animation: init 1s infinite;
+}
+.circle .material-symbols-outlined{
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: gray;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0;
+}
+.circle .complet{
+    opacity: 1;
+}
+.circle h3{
+    position: absolute;
+    bottom: -70%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+@media (max-width: 800px){
+    #container{
+        width: 90%;
+    }
+}
+@media (max-width: 600px){
+    #container{
+        width: 130%;
+        transform: scale(0.7);
+    }
+}
+@media (max-width: 400px){
+    #container{
+        width: 180%;
+        transform: scale(0.5);
+    }
+}

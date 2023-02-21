@@ -1,0 +1,82 @@
+#slideConteiner{
+    width: 500px;
+    height: 300px;
+    overflow: hidden;
+}
+.glide__slides{
+    display: flex;
+    width: 4500px;
+    height: 300px;
+    align-items: center;
+    transition: .5s;
+}
+.glide__slides img{
+    margin-bottom: 50px;
+}
+.carousel-slide{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+}
+.description p{
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.33;
+    margin-top: 3.125rem;
+    max-width: 15.3125rem;
+}
+.mobile{
+    display: none;
+}
+.eyes-container{
+    position: relative;
+    margin-bottom: 50px;
+}
+.left-hand{
+    transform: translate(20px, -15px);
+    
+}
+.right-hand{
+    transform: translate(140px, -15px) scaleX(-1);
+}
+.motion-hand{
+    animation: motion 3s infinite;
+    position: absolute;
+}
+.none-hand{
+    display: none;
+}
+
+#skipTutorialInput{
+    background-color: white;
+    border: none;
+    color: blue;
+    text-decoration: underline;
+}
+#staticEye{
+    height: 40px;
+    position: relative;
+}
+.static-right-hand{
+    position: absolute;
+    top: 0px;
+    right: 27px;
+}
+.static-left-hand{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+}
+@keyframes motion{
+    0% {top: 60px;}
+    50% {top: 20px;}
+    100% {top: 60px;}
+}
+@media (max-width: 600px){
+    #slideConteiner{
+        transform: scale(0.6);
+    }
+}
