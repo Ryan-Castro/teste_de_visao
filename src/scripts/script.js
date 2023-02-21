@@ -25,7 +25,7 @@ function updateAndStart(test, system){
         widthCard = ((100 + Number($("#inputCalibrateDesktop").value)) / 3)
     }
     if(system == "mobile"){
-        widthCard = (100 + Number($("#inputCalibrateMobile").value) / 4)
+        widthCard = (Number($("#inputCalibrateMobile").value) / 3)
     }
     isCalibrated = true
     startTest(`${test}`)
