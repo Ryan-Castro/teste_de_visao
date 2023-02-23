@@ -76,9 +76,6 @@
     100% {top: 60px;}
 }
 @media (max-width: 600px){
-    #staticEye{
-        transform: scale(0.8);
-    }
     #slideConteiner{
         transform: scale(0.6);
     }

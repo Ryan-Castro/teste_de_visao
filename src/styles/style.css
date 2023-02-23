@@ -253,10 +253,6 @@ main{
     }
     main{
         width: 100vw;
-        height: 80%;
-    }
-    #divTable{
-        transform: scale(0.7);
     }
 }
 @media (max-width: 600px){
