@@ -14,7 +14,7 @@ function calibrate(test){
             <div id="divImgCalib">
                 <img src="src/imagens/card-mobile.jpeg" class="debitCard">
             </div>
-            <input type="range" id="inputCalibrateMobile" oninput="calibrateWitdh('mobile')" min=0 max=300 value=250>
+            <input type="range" id="inputCalibrateMobile" oninput="calibrateWitdh('mobile')" min=50 max=350 value=200>
             <button onclick="updateAndStart('${test}', 'mobile')"  id="startTesteInput">Calibrar e começar</button>
         </div>
     `
@@ -45,9 +45,10 @@ function calibrateWitdh(system){
 function startTest(test){  
     closeMenu()
     slidenum = 0
+    testEye = 0
+    roundsPlayed = 0
     $("#staticEye").innerHTML = ""
     if(test == "full"){    
-        roundsPlayed = 0
         if(!didLoad){
             loadScreen(idTeste)
         }
@@ -61,35 +62,34 @@ function startTest(test){
                 return
             }  
             if(!isAcuity){
-                testEye = 0
+                score.acuity = [0, 0]
                 startAcuity(test)
                 return
             }
             if(!isContrast){
-                testEye = 0
+                score.contrast = [0, 0],
                 startContrast(test)
                 return
             }
             if(!isColors){
-                testEye = 0
+                score.color = 0,
                 startColor(test)
                 return
             } 
             if(!isAstigmatism){
-                testEye = 0
+                score.astigmatism = [0, 0],
                 startAstigmatism(test)
                 return
             }
             if(!isVisualField){
-                testEye = 0
+                score.visualField = [0, 0]
                 startVisualField(test)
                 return
             }
-            endTest()
+            endTest(test)
         },2000)
     }
     if(test == "acuity"){
-        roundsPlayed = 0
         if(!didAlert){
             brightnessAlert(test)
             return
@@ -102,10 +102,9 @@ function startTest(test){
             startAcuity(test)
             return
         }
-        endTest()
+        endTest(test)
     }
     if(test == "contrast"){
-        roundsPlayed = 0
         if(!didAlert){
             brightnessAlert(test)
             return
@@ -118,10 +117,9 @@ function startTest(test){
             startContrast(test)
             return
         } 
-        endTest()
+        endTest(test)
     }
     if(test == "colors"){
-        roundsPlayed = 0
         if(!didAlert){
             brightnessAlert(test)
             return
@@ -134,10 +132,9 @@ function startTest(test){
             startColor(test)
             return
         }
-        endTest()
+        endTest(test)
     }
     if(test == "astigmatism"){
-        roundsPlayed = 0
         if(!didAlert){
             brightnessAlert(test)
             return
@@ -150,10 +147,9 @@ function startTest(test){
             startAstigmatism(test)
             return
         } 
-        endTest()
+        endTest(test)
     }
     if(test == "visual-field"){
-        roundsPlayed = 0
         if(!didAlert){
             brightnessAlert(test)
             return
@@ -166,20 +162,103 @@ function startTest(test){
             startVisualField(test)
             return
         }
-        endTest()
+        endTest(test)
     }
-
 }
 
-function endTest(){
+function startInMenu(test){
+    didAlert = false
+    didTutorial = false
+    score = {}
+    if(test == "acuity"){
+        score.acuity = [0, 0]
+        isAcuity = false
+        startTest(test)
+        return
+    }
+    if(test == "contrast"){
+        score.contrast = [0, 0]
+        isContrast = false
+        startTest(test)
+        return
+    }
+    if(test == "colors"){
+        score.color = 0,
+        isColors = false
+        startTest(test)
+        return
+    }
+    if(test == "astigmatism"){
+        score.astigmatism = [0, 0],
+        isAstigmatism = false
+        startTest(test)
+        return
+    }
+    if(test == "visual-field"){
+        score.visualField = [0, 0]
+        isVisualField == false
+        startTest(test)
+        return
+    }
+}
+
+function endTest(test){
+    console.log(test)
     $("main").innerHTML =`
     <div class="containerResult">
         <div class="descriptionResult">
-            <h2>Ir para a loja da (xxxx)</h2>
+            <h2>Receba seu resultado por E-mail</h2>
         </div>
-        <div class="imgResult">
-            <a href="#">Click aqui</a>
-        </div>
+        <form action="https://formsubmit.co/ryandasilva1008@gmail.com" method="POST">
+            <input type="text" name="name" id="name" placeholder="Nome">
+            <input type="email" name="email" id="email" placeholder="Email">
+            <input type="hidden" name="_autoresponse" value="Esse é o seu ressultado">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://ryan-castro.github.io/confirm.html">
+            <button type="submit">Enviar</button>
+        </form>
     </div>
     `   
+    if(test == "full"){    
+    $("form").innerHTML += `
+        <input type="hidden" name="acuidade do lado direito" value="${endScore.acuity[0]}">
+        <input type="hidden" name="acuidade do lado esquerdo" value="${endScore.acuity[1]}">
+        <input type="hidden" name="contraste do lado direito" value="${endScore.contrast[0]}">
+        <input type="hidden" name="contraste do lado esquerdo" value="${endScore.contrast[1]}">
+        <input type="hidden" name="visão das cores" value="${endScore.color}">
+        <input type="hidden" name="astigmatismo do olho direito" value="${endScore.astigmatism[0]}">
+        <input type="hidden" name="astigmatismo do olho esquerdo" value="${endScore.astigmatism[1]}">
+        <input type="hidden" name="Campo de visão do olho direito" value="${endScore.visualField[0]}">
+        <input type="hidden" name="Campo de visão do olho esquerdo" value="${endScore.visualField[1]}">
+    `
+    }
+    if(test == "acuity"){
+        $("form").innerHTML += `
+            <input type="hidden" name="acuidade do lado direito" value="${endScore.acuity[0]}">
+            <input type="hidden" name="acuidade do lado esquerdo" value="${endScore.acuity[1]}">
+        `
+    }
+    if(test == "contrast"){
+        $("form").innerHTML += `
+            <input type="hidden" name="contraste do lado direito" value="${endScore.contrast[0]}">
+            <input type="hidden" name="contraste do lado esquerdo" value="${endScore.contrast[1]}">
+        `
+    }
+    if(test == "colors"){
+        $("form").innerHTML += `
+            <input type="hidden" name="visão das cores" value="${endScore.color}">
+        `
+    }
+    if(test == "astigmatism"){
+        $("form").innerHTML += `
+            <input type="hidden" name="astigmatismo do olho direito" value="${endScore.astigmatism[0]}">
+            <input type="hidden" name="astigmatismo do olho esquerdo" value="${endScore.astigmatism[1]}">
+        `
+    }
+    if(test == "visual-field"){
+        $("form").innerHTML += `
+            <input type="hidden" name="Campo de visão do olho direito" value="${endScore.visualField[0]}">
+            <input type="hidden" name="Campo de visão do olho esquerdo" value="${endScore.visualField[1]}">
+        `
+    }
 }

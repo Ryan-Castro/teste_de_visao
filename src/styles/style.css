@@ -14,13 +14,20 @@ body{
 }
 header{
     width: 100vw;
-    display: flex;
-    justify-content: space-between;
+    height: 100px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 10px 30px;
 }
-header button, #menu button{
+#imgLogo{
+    max-width: 100%;
+    max-height: 70px;
+}
+header button, #closeMenu{
     border: none;
     background-color: white;
+    justify-self: flex-end;
 }
 p{
     text-align: center;
@@ -31,7 +38,7 @@ p{
     display: none;
     opacity: 0;
     transition: .5s;
-    justify-content: end;
+    justify-content: flex-end;
     background-color: rgba(0, 0, 0, 0.242);
     position: fixed;
     top: 0px;
@@ -77,7 +84,7 @@ p{
 }
 main{
     width: 800px;
-    height: 100%;
+    height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,11 +218,6 @@ main{
     font-size: 21px;
     border-bottom: 2px solid black;
 }
-.imgResult{
-    display: flex;
-    width: 200px;
-    justify-content: space-between;
-}
 .imgResult a{
     background-color: rgb(0, 224, 0);
     padding: 10px 50px;
@@ -229,7 +231,8 @@ main{
 }
 #Resultbtn{
     height: 50px;
-    width: 270px;
+    padding: 0px 20px;
+    white-space: nowrap;
     background-color: #008bd0;
     color: white;
     border: none;
@@ -240,6 +243,21 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+}
+form input{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+}
+form button{
+    height: 35px;
+
 }
 @media (max-width: 800px){
     .desktop{
@@ -254,8 +272,11 @@ main{
     main{
         width: 100vw;
     }
+    form{
+        width: 80%;
+    }
 }
-@media (max-width: 600px){
+@media (max-width: 650px){
     h1{
         font-size: 25px;
     }

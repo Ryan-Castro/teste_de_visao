@@ -39,21 +39,21 @@ function startAcuity(test){
             </div>
             <button id="startTesteInput" onclick="testNexeEyeAcuity('${test}')">Seguinte</button>`
         } else {
+            $("#staticEye").innerHTML = ""
             isAcuity = true
             didTutorial = false
             idTeste = 1
             didLoad = false
-            let leftEye = ""
-            let rightEye = ""
+            endScore.acuity = ["", ""]
             if(score.acuity[0] > 5){
-                rightEye = "excellent"
+                endScore.acuity[0] = "Ótimo"
             } else {
-                rightEye = "reduced"
+                endScore.acuity[0] = "Ruim"
             }
             if(score.acuity[1] > 5){
-                leftEye = "excellent"
+                endScore.acuity[1] = "Ótimo"
             } else {
-                leftEye = "reduced"
+                endScore.acuity[1] = "Ruim"
             }
             $("main").innerHTML =`
                 <div class="containerResult">
@@ -62,14 +62,10 @@ function startAcuity(test){
                         <h2>Acuidade Visual</h2>
                     </div>
                     <div class="descriptionResult">
-                        <h3>Esse é o resultado do seu teste</h3>
+                        <h3>Continuar para o próximo teste</h3>
                     </div>
-                    <div class="imgResult">
-                        <img src="./src/imagens/${leftEye}.svg">
-                        <img src="./src/imagens/${rightEye}.svg">
-                    </div>
+                    <button onclick="startTest('${test}')" id="Resultbtn">Continuar para visão de contraste </button>
                 </div>
-                <button onclick="startTest('${test}')" id="Resultbtn">Continuar para visão de contraste </button>
             `
        
         }

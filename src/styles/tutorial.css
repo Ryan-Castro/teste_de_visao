@@ -59,6 +59,7 @@
 #staticEye{
     height: 40px;
     position: relative;
+    justify-self: center;
 }
 .static-right-hand{
     position: absolute;
@@ -78,5 +79,8 @@
 @media (max-width: 600px){
     #slideConteiner{
         transform: scale(0.6);
+    }
+    #staticEye{
+        transform: scale(0.5);
     }
 }

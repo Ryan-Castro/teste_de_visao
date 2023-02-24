@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Óptica Santista</title>
     <link rel="stylesheet" href="./src/styles/style.css">
     <link rel="stylesheet" href="./src/styles/testStyle.css">
     <link rel="stylesheet" href="./src/styles/loadScreen.css">
@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <h1 onclick="reloadPade()">logo</h1>
+        <img src="/src/imagens/logo.jpg" alt="logo" id="imgLogo" onclick="reloadPade()">
         <div id="staticEye">
         </div>
         <button onclick="openMenu()">
@@ -23,6 +23,7 @@
         </button>
     </header>
     <main>
+        <video src="src/video/eye-animate-2x.mp4" width="200px" muted autoplay></video>
         <h1>Teste visual Online</h1>
         <input type="button" onclick="startTest('full')" id="startTesteInput" value="Começar teste"/>    
     </main>
@@ -33,23 +34,23 @@
                     close
                 </span>
             </button>
-            <div class="card" onclick="startTest('acuity')">
+            <div class="card" onclick="startInMenu('acuity')">
                 <img src="./src/imagens/acuity-test.svg" alt="Logo-Acuidade">
                 <h1>Acuidade visual</h1>
             </div>
-            <div class="card" onclick="startTest('contrast')">
+            <div class="card" onclick="startInMenu('contrast')">
                 <img src="./src/imagens/contrast-test.svg" alt="Logo-VisãoDeContraste">
                 <h1>Visão de contraste</h1>
             </div>
-            <div class="card" onclick="startTest('colors')">
+            <div class="card" onclick="startInMenu('colors')">
                 <img src="./src/imagens/color-test.svg" alt="Logo-VisãoDasCores">
                 <h1>Visão das cores</h1>
             </div>
-            <div class="card" onclick="startTest('astigmatism')">
+            <div class="card" onclick="startInMenu('astigmatism')">
                 <img src="./src/imagens/astigmatism-test.svg" alt="Logo-Astigmatismo">    
                 <h1>Astigmatismo</h1>
             </div>
-            <div class="card" onclick="startTest('visual-field')" >
+            <div class="card" onclick="startInMenu('visual-field')" >
                 <img src="./src/imagens/amsler-test.svg" alt="Logo-CampoVisual">
                 <h1>Campo Visual</h1>
             </div>

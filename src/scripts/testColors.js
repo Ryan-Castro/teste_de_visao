@@ -24,11 +24,11 @@ function startColor(test){
         didTutorial = false
         idTeste = 3
         didLoad = false
-        let leftEye = ""
+        endScore.color = ""
         if(score.color >= 2){
-            leftEye = "excellent"
+            endScore.color = "Ótimo"
         } else {
-            leftEye = "reduced"
+            endScore.color = "ruim"
         }
         $("main").innerHTML =`
             <div class="containerResult">
@@ -37,14 +37,10 @@ function startColor(test){
                     <h2>Visão das cores</h2>
                 </div>
                 <div class="descriptionResult">
-                    <h3>Esse é o resultado do seu teste</h3>
+                    <h3>Continuar para o próximo teste</h3>
                 </div>
-                <div class="imgResult">
-                    <img src="./src/imagens/${leftEye}.svg">
-                    <img src="./src/imagens/${leftEye}.svg">
-                </div>
+                <button onclick="startTest('${test}')" id="Resultbtn">Continuar para astigmatismo </button>
             </div>
-            <button onclick="startTest('${test}')" id="Resultbtn">Continuar para astigmatismo </button>
             `
     }
 }

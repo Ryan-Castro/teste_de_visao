@@ -38,13 +38,8 @@ let testEye = 0
 let idTeste = 0
 let widthCard = 0
 let staticSide = ["static-left-hand", "static-right-hand"]
-let score = {
-    acuity: [0, 0],
-    contrast: [0, 0],
-    color: 0,
-    astigmatism: [0, 0],
-    visualField: [0, 0]
-}
+let score = {}
+let endScore = {}
 
 
 function createTeble(){

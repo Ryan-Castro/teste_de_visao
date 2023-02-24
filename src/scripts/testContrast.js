@@ -39,21 +39,21 @@ function startContrast(test){
             </div>
             <button id="startTesteInput" onclick="testNexeEyeContrast('${test}')">Seguinte</button>`
         } else {
+            $("#staticEye").innerHTML = ""
             isContrast = true
             didTutorial = false
             idTeste = 2
             didLoad = false
-            let leftEye = ""
-            let rightEye = ""
+            endScore.contrast = ["", ""]
             if(score.contrast[0] > 5){
-                rightEye = "excellent"
+                endScore.contrast[0] = "Ótimo"
             } else {
-                rightEye = "reduced"
+                endScore.contrast[0] = "Ruim"
             }
             if(score.contrast[1] > 5){
-                leftEye = "excellent"
+                endScore.contrast[1] = "Ótimo"
             } else {
-                leftEye = "reduced"
+                endScore.contrast[1] = "Ruim"
             }
             $("main").innerHTML =`
                 <div class="containerResult">
@@ -62,14 +62,10 @@ function startContrast(test){
                         <h2>Visão de contraste</h2>
                     </div>
                     <div class="descriptionResult">
-                        <h3>Esse é o resultado do seu teste</h3>
+                        <h3>Continuar para o próximo teste</h3>
                     </div>
-                    <div class="imgResult">
-                        <img src="./src/imagens/${leftEye}.svg">
-                        <img src="./src/imagens/${rightEye}.svg">
-                    </div>
+                    <button onclick="startTest('${test}')" id="Resultbtn">Continuar para visão das cores</button>    
                 </div>
-                <button onclick="startTest('${test}')" id="Resultbtn">Continuar para visão das cores</button>
             `
         }
     }

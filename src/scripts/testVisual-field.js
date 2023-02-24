@@ -88,19 +88,21 @@ function startVisualField(test){
             </div>
             <button id="startTesteInput" onclick="testNexeEyeVisualField('${test}')">Seguinte</button>`
         } else {
+            $("#staticEye").innerHTML = ""
             isVisualField = true
             didTutorial = false
             idTeste = 5
             didLoad = false
+            endScore.visualField = ["", ""]
             if(score.visualField[0] > 1){
-                rightEye = "excellent"
+                endScore.visualField[0]  = "Ótimo"
             } else {
-                rightEye = "reduced"
+                endScore.visualField[0]  = "Ruim"
             }
             if(score.visualField[1] > 1){
-                leftEye = "excellent"
+                endScore.visualField[1]  = "Ótimo"
             } else {
-                leftEye = "reduced"
+                endScore.visualField[1]  = "Ruim"
             }
             $("main").innerHTML =`
                 <div class="containerResult">
@@ -109,14 +111,10 @@ function startVisualField(test){
                         <h2>Campo visual</h2>
                     </div>
                     <div class="descriptionResult">
-                        <h3>Esse é o resultado do seu teste</h3>
+                        <h3>Continuar para o próximo teste</h3>
                     </div>
-                    <div class="imgResult">
-                        <img src="./src/imagens/${leftEye}.svg">
-                        <img src="./src/imagens/${rightEye}.svg">
-                    </div>
+                    <button onclick="startTest('${test}')" id="Resultbtn">Continuar</button>
                 </div>
-                <button onclick="startTest('${test}')" id="Resultbtn">Continuar</button>
             `
        
        
