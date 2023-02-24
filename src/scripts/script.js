@@ -214,7 +214,7 @@ function endTest(test){
             <input type="email" name="email" id="email" placeholder="Email">
             <input type="hidden" name="_autoresponse" value="Esse é o seu ressultado">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://ryan-castro.github.io/confirm.html">
+            <input type="hidden" name="_next" value="https://ryan-castro.github.io/teste_de_visao/confirm.html">
             <button type="submit">Enviar</button>
         </form>
     </div>
